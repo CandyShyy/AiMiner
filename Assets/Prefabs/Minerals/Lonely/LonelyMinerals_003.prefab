@@ -101,6 +101,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minMinerals: 2
   maxMinerals: 10
+  littleMinedSprite: {fileID: 0}
+  halfMinedSprite: {fileID: 0}
+  fullyMinedSprite: {fileID: 0}
 --- !u!1 &4623313789369979083
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +156,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 06441a9f4aea05940800b29ea922c1cb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -232,6 +235,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minMinerals: 2
   maxMinerals: 5
+  littleMinedSprite: {fileID: 0}
+  halfMinedSprite: {fileID: 0}
+  fullyMinedSprite: {fileID: 0}
 --- !u!60 &8799948169541705216
 PolygonCollider2D:
   m_ObjectHideFlags: 0
