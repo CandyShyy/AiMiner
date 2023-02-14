@@ -124,7 +124,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -256,10 +256,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 20
+  backwardSpeed: 3
   sprintSpeed: 15
   acceleration: 7
   deceleration: 10
-  backwardSpeed: 3
 --- !u!114 &6879139283930386861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,12 +272,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fae29a6ade29bed47b02b917634fedc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 6879139283930386860}
   miningRange: 2
   mineralsPerSecond: 1
-  animator: {fileID: 6879139283930386860}
   totalMineralsHarvested: 0
-  progressBar: {fileID: 0}
-  particleSys: {fileID: 0}
 --- !u!1 &7879121295435196484
 GameObject:
   m_ObjectHideFlags: 0
