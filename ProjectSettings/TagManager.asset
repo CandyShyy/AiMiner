@@ -46,7 +46,7 @@ TagManager:
     locked: 0
   - name: Minimap
     uniqueID: 1978372321
-    locked: 1
+    locked: 0
   - name: Game
     uniqueID: 1503223289
     locked: 0
