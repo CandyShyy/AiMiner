@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4587767631307611237}
   - component: {fileID: 965280704058843756}
-  - component: {fileID: 7055876702412657647}
   m_Layer: 0
   m_Name: LonelyMinerals_003
   m_TagString: Untagged
@@ -55,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9070f7d58ac9a9d4e95294717624dce6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,23 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7055876702412657647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3622830198245386495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae4f32e71b3ad964597453c89e8bddeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minMinerals: 2
-  maxMinerals: 10
-  littleMinedSprite: {fileID: 0}
-  halfMinedSprite: {fileID: 0}
-  fullyMinedSprite: {fileID: 0}
 --- !u!1 &4623313789369979083
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +158,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: a419e559fb045044e93ef1cdd517b3b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -235,9 +217,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minMinerals: 2
   maxMinerals: 5
-  littleMinedSprite: {fileID: 0}
-  halfMinedSprite: {fileID: 0}
-  fullyMinedSprite: {fileID: 0}
+  littleMinedSprite: {fileID: 21300000, guid: 62ce7ff335dba4840a8d6dae7b6b1d45, type: 3}
+  halfMinedSprite: {fileID: 21300000, guid: 62ce7ff335dba4840a8d6dae7b6b1d45, type: 3}
+  fullyMinedSprite: {fileID: 21300000, guid: 62ce7ff335dba4840a8d6dae7b6b1d45, type: 3}
 --- !u!60 &8799948169541705216
 PolygonCollider2D:
   m_ObjectHideFlags: 0

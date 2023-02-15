@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7080289327789654672}
   - component: {fileID: 1300905368724572924}
-  - component: {fileID: 7341225434669086988}
   m_Layer: 0
   m_Name: LonelyMinerals_001
   m_TagString: Untagged
@@ -87,23 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7341225434669086988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 237574633627541089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae4f32e71b3ad964597453c89e8bddeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minMinerals: 2
-  maxMinerals: 10
-  littleMinedSprite: {fileID: 0}
-  halfMinedSprite: {fileID: 0}
-  fullyMinedSprite: {fileID: 0}
 --- !u!1 &8526735333428665121
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,9 +133,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minMinerals: 2
   maxMinerals: 5
-  littleMinedSprite: {fileID: 0}
-  halfMinedSprite: {fileID: 0}
-  fullyMinedSprite: {fileID: 0}
+  littleMinedSprite: {fileID: 21300000, guid: 24a939ca0dde60d4d87e8d8ee4b01d16, type: 3}
+  halfMinedSprite: {fileID: 21300000, guid: 24a939ca0dde60d4d87e8d8ee4b01d16, type: 3}
+  fullyMinedSprite: {fileID: 21300000, guid: 24a939ca0dde60d4d87e8d8ee4b01d16, type: 3}
 --- !u!60 &5595087394381836098
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -263,7 +245,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: a419e559fb045044e93ef1cdd517b3b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
