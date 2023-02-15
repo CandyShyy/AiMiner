@@ -42,12 +42,13 @@ public class ACController : MonoBehaviour
      // Add small sideways force when A or D is pressed
     if (Input.GetKey(KeyCode.A))
     {
-        rigidBody.AddForce(Vector2.left * steering);
+        rigidBody.AddForce(-transform.right * steering);
     }
     else if (Input.GetKey(KeyCode.D))
     {
-        rigidBody.AddForce(Vector2.right * steering);
+        rigidBody.AddForce(transform.right * steering);
     }
+
 
     // If 'S' key is pressed, move backwards
     if (Input.GetKey(KeyCode.S)) 
