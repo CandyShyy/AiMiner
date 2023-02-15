@@ -941,6 +941,7 @@ MonoBehaviour:
   sprintSpeed: 15
   acceleration: 7
   deceleration: 10
+  steering: 2
 --- !u!114 &6879139283930386861
 MonoBehaviour:
   m_ObjectHideFlags: 0
