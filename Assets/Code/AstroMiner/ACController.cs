@@ -32,11 +32,16 @@ public class ACController : MonoBehaviour
     mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
     // Calculate direction towards the mouse
-    Vector2 direction = myTransform.InverseTransformPoint(mousePos);
+    Vector2 direction = new Vector2(
+        mousePos.x - myTransform.position.x,
+        mousePos.y - myTransform.position.y
+    );  
 
     direction.Normalize(); // Normalize direction vector
 
-    // Add small sideways force when A or D is pressed
+    
+
+     // Add small sideways force when A or D is pressed
     if (Input.GetKey(KeyCode.A))
     {
         rigidBody.AddForce(-transform.right * steering);
@@ -46,8 +51,9 @@ public class ACController : MonoBehaviour
         rigidBody.AddForce(transform.right * steering);
     }
 
+
     // If 'S' key is pressed, move backwards
-    if (Input.GetKey(KeyCode.S))
+    if (Input.GetKey(KeyCode.S)) 
     {
         rigidBody.velocity -= direction * backwardSpeed * Time.deltaTime;
 
@@ -55,12 +61,12 @@ public class ACController : MonoBehaviour
         {
             rigidBody.velocity = rigidBody.velocity.normalized * maxSpeed;
         }
-
+        
         animator.SetBool("isMoving", true);
         animator.SetBool("isSprinting", false);
     }
     // If 'W' key is pressed, move forwards
-    else if (Input.GetKey(KeyCode.W))
+    else if (Input.GetKey(KeyCode.W)) 
     {
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
@@ -68,7 +74,7 @@ public class ACController : MonoBehaviour
 
             if (rigidBody.velocity.magnitude > sprintSpeed)
             {
-                rigidBody.AddForce(transform.up * acceleration);
+                rigidBody.velocity = rigidBody.velocity.normalized * sprintSpeed;
             }
 
             animator.SetBool("isMoving", true);
@@ -76,7 +82,12 @@ public class ACController : MonoBehaviour
         }
         else
         {
-             rigidBody.AddForce(transform.up * acceleration);
+            rigidBody.velocity += direction * acceleration * Time.deltaTime;
+
+            if (rigidBody.velocity.magnitude > maxSpeed)
+            {
+                rigidBody.velocity = rigidBody.velocity.normalized * maxSpeed;
+            }
 
             animator.SetBool("isMoving", true);
             animator.SetBool("isSprinting", false);
@@ -95,7 +106,6 @@ public class ACController : MonoBehaviour
         animator.SetBool("isSprinting", false);
     }
 
-    // Rotate the transform to match the camera's rotation
-    myTransform.rotation = Quaternion.Euler(0f, 0f, Camera.main.transform.rotation.eulerAngles.z);
-}
+    myTransform.up = direction;
+    }
 }
