@@ -9,14 +9,13 @@ public class ACController : MonoBehaviour
     public float sprintSpeed = 15.0f; // The speed the object moves while sprinting
     public float acceleration = 5.0f; // The rate at which the object accelerates
     public float deceleration = 2.0f; // The rate at which the object decelerates
-    public float steering = 2.0f; // The rate at which the object steer
+    public float steering = 2.0f; 
+    public float rotationSpeed = 180.0f; // The rate at which the object rotates
+    
 
-    
-    
     private Rigidbody2D rigidBody; // Reference to the Rigidbody2D component
     private Transform myTransform; // Reference to the Transform component
     private Animator animator; // Reference to the Animator component
-    
 
     private void Start()
     {
@@ -26,86 +25,80 @@ public class ACController : MonoBehaviour
     }
 
     private void Update()
-{
-    // Get mouse position in world space
-    Vector3 mousePos = Input.mousePosition;
-    mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-
-    // Calculate direction towards the mouse
-    Vector2 direction = new Vector2(
-        mousePos.x - myTransform.position.x,
-        mousePos.y - myTransform.position.y
-    );  
-
-    direction.Normalize(); // Normalize direction vector
-
-    
-
-     // Add small sideways force when A or D is pressed
-    if (Input.GetKey(KeyCode.A))
     {
-        rigidBody.AddForce(-transform.right * steering);
-    }
-    else if (Input.GetKey(KeyCode.D))
-    {
-        rigidBody.AddForce(transform.right * steering);
-    }
-
-
-    // If 'S' key is pressed, move backwards
-    if (Input.GetKey(KeyCode.S)) 
-    {
-        rigidBody.velocity -= direction * backwardSpeed * Time.deltaTime;
-
-        if (rigidBody.velocity.magnitude > maxSpeed)
+            // Rotate the ship using Q and E
+        if (Input.GetKey(KeyCode.Q))
         {
-            rigidBody.velocity = rigidBody.velocity.normalized * maxSpeed;
+            myTransform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
         }
-        
-        animator.SetBool("isMoving", true);
-        animator.SetBool("isSprinting", false);
-    }
-    // If 'W' key is pressed, move forwards
-    else if (Input.GetKey(KeyCode.W)) 
-    {
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        else if (Input.GetKey(KeyCode.E))
         {
-            rigidBody.velocity += direction * acceleration * Time.deltaTime * sprintSpeed / maxSpeed;
+            myTransform.Rotate(-Vector3.forward * rotationSpeed * Time.deltaTime);
+        }
 
-            if (rigidBody.velocity.magnitude > sprintSpeed)
+            // Add small sideways force when A or D is pressed
+        if (Input.GetKey(KeyCode.A))
+        {
+            rigidBody.AddForce(-transform.right * steering);
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            rigidBody.AddForce(transform.right * steering);
+        }
+
+
+
+        // Move the ship forwards or backwards
+        float moveInput = Input.GetAxis("Vertical");
+        if (moveInput < 0)
+        {
+            rigidBody.velocity -= (Vector2)(myTransform.up * backwardSpeed * Time.deltaTime);
+        }
+        else if (moveInput > 0)
+        {
+            float targetSpeed = moveInput * maxSpeed;
+            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
             {
-                rigidBody.velocity = rigidBody.velocity.normalized * sprintSpeed;
+                targetSpeed *= sprintSpeed / maxSpeed;
+            }
+
+            float accelerationRate = acceleration * Time.deltaTime;
+            float decelerationRate = deceleration * Time.deltaTime;
+
+            if (rigidBody.velocity.magnitude < targetSpeed)
+            {
+                rigidBody.velocity += (Vector2)(myTransform.up * accelerationRate);
+                if (rigidBody.velocity.magnitude > targetSpeed)
+                {
+                    rigidBody.velocity = (Vector2)(myTransform.up * targetSpeed);
+                }
+            }
+            else if (rigidBody.velocity.magnitude > targetSpeed)
+            {
+                rigidBody.velocity -= rigidBody.velocity.normalized * decelerationRate;
+                if (rigidBody.velocity.magnitude < targetSpeed)
+                {
+                    rigidBody.velocity = (Vector2)(myTransform.up * targetSpeed);
+                }
             }
 
             animator.SetBool("isMoving", true);
-            animator.SetBool("isSprinting", true);
+            animator.SetBool("isSprinting", Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
         }
         else
         {
-            rigidBody.velocity += direction * acceleration * Time.deltaTime;
-
-            if (rigidBody.velocity.magnitude > maxSpeed)
+            float decelerationRate = deceleration * Time.deltaTime;
+            if (rigidBody.velocity.magnitude > decelerationRate)
             {
-                rigidBody.velocity = rigidBody.velocity.normalized * maxSpeed;
+                rigidBody.velocity -= rigidBody.velocity.normalized * decelerationRate;
+            }
+            else
+            {
+                rigidBody.velocity = Vector2.zero;
             }
 
-            animator.SetBool("isMoving", true);
+            animator.SetBool("isMoving", false);
             animator.SetBool("isSprinting", false);
         }
-    }
-    else
-    {
-        rigidBody.velocity -= rigidBody.velocity.normalized * deceleration * Time.deltaTime;
-
-        if (rigidBody.velocity.magnitude < 0.1f)
-        {
-            rigidBody.velocity = Vector2.zero;
-        }
-
-        animator.SetBool("isMoving", false);
-        animator.SetBool("isSprinting", false);
-    }
-
-    myTransform.up = direction;
     }
 }
