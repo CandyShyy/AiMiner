@@ -35,6 +35,7 @@ public class UpgradeTrigger : MonoBehaviour
         upgradeUI.SetActive(false);
         // Enable the ACController script
         acController.enabled = true;
+        acRigidbody.constraints = RigidbodyConstraints2D.None;
     }
 }
 
