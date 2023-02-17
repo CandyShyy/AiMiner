@@ -756,6 +756,7 @@ GameObject:
   - component: {fileID: 1582861269198266720}
   - component: {fileID: 6879139283930386870}
   - component: {fileID: 6879139283930386861}
+  - component: {fileID: 6856799825149112618}
   m_Layer: 0
   m_Name: AstroMiner
   m_TagString: Untagged
@@ -942,6 +943,7 @@ MonoBehaviour:
   acceleration: 7
   deceleration: 10
   steering: 2
+  rotationSpeed: 180
 --- !u!114 &6879139283930386861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -958,6 +960,19 @@ MonoBehaviour:
   miningRange: 2
   mineralsPerSecond: 1
   totalMineralsHarvested: 0
+--- !u!114 &6856799825149112618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6879139283930386871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa854194981004d4581c570d52957a2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Minerals: 0
 --- !u!1 &7879121295435196484
 GameObject:
   m_ObjectHideFlags: 0

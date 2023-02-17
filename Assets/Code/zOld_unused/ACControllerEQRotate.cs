@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ACController : MonoBehaviour
+public class ACControllerEQRotate : MonoBehaviour
 {
+   /*
     public float maxSpeed = 10.0f; // The maximum speed the object can move
     public float backwardSpeed = 3.0f; // The speed at which the object moves backwards
     public float sprintSpeed = 15.0f; // The speed the object moves while sprinting
     public float acceleration = 5.0f; // The rate at which the object accelerates
     public float deceleration = 2.0f; // The rate at which the object decelerates
-    //public float steering = 2.0f; 
+    public float steering = 2.0f; 
     public float rotationSpeed = 180.0f; // The rate at which the object rotates
     
 
@@ -26,20 +27,17 @@ public class ACController : MonoBehaviour
 
     private void Update()
     {
-        // Get mouse position in world space
-        Vector3 mousePos = Input.mousePosition;
-        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+            // Rotate the ship using Q and E
+        if (Input.GetKey(KeyCode.Q))
+        {
+            myTransform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
+        }
+        else if (Input.GetKey(KeyCode.E))
+        {
+            myTransform.Rotate(-Vector3.forward * rotationSpeed * Time.deltaTime);
+        }
 
-        // Calculate direction towards the mouse
-        Vector2 direction = new Vector2(
-        mousePos.x - myTransform.position.x,
-        mousePos.y - myTransform.position.y
-    );  
-
-    direction.Normalize(); // Normalize direction vector
-
-        // Add small sideways force when A or D is pressed
-        /*
+            // Add small sideways force when A or D is pressed
         if (Input.GetKey(KeyCode.A))
         {
             rigidBody.AddForce(-transform.right * steering);
@@ -48,7 +46,6 @@ public class ACController : MonoBehaviour
         {
             rigidBody.AddForce(transform.right * steering);
         }
-        */
 
 
 
@@ -103,9 +100,7 @@ public class ACController : MonoBehaviour
 
             animator.SetBool("isMoving", false);
             animator.SetBool("isSprinting", false);
-
-            
         }
-        myTransform.up = direction;
     }
+    */
 }

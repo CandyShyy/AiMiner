@@ -6,12 +6,20 @@ public class UpgradeTrigger : MonoBehaviour
 {
     public GameObject upgradeUI;
     public ACController acController;
+    public ACMining acMining;
+
     private Rigidbody2D acRigidbody;
+    public Animator animator;
+
+
+    public Sprite TREE36;
+
+    public SpriteRenderer spriteRenderer;
 
     private void Start()
     {
         upgradeUI.SetActive(false);
-        acRigidbody = acController.GetComponent<Rigidbody2D>();
+        acRigidbody = acController.GetComponent<Rigidbody2D>();       
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -25,6 +33,13 @@ public class UpgradeTrigger : MonoBehaviour
             // Freeze the ACController rigidbody
             acRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
         }
+    }
+
+    public void BuyUpgradeTier1()
+    {
+        acMining.mineralsPerSecond = 5;
+        animator.SetBool("firstUpgrade", true);
+        spriteRenderer.sprite = TREE36;
     }
 
     public void OnExitShop()
