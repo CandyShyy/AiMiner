@@ -10,6 +10,7 @@ public class UpgradeTrigger : MonoBehaviour
 
     private Rigidbody2D acRigidbody;
     private Collider2D playerCollider;
+    private bool canTriggerUpgrade = true;
 
     private void Start()
     {
@@ -18,14 +19,22 @@ public class UpgradeTrigger : MonoBehaviour
         playerCollider = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>(); 
     }
 
+    private IEnumerator CooldownCoroutine()
+    {
+        canTriggerUpgrade = false;
+        yield return new WaitForSeconds(3f);
+        canTriggerUpgrade = true;
+    }
+
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Check if the collider is tagged as a MineralsZone and the player is in contact with it
-    if (other.CompareTag("mineralZone") && other.GetComponent<Collider2D>().IsTouching(GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>()))
+    if (canTriggerUpgrade && other.CompareTag("mineralZone") && other.GetComponent<Collider2D>().IsTouching(GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>()))
         {
             upgradeUI.SetActive(true);
             acController.enabled = false;
-            acRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+            acRigidbody.constraints = RigidbodyConstraints2D.FreezeAll; 
         }
     }
 
@@ -36,6 +45,7 @@ public class UpgradeTrigger : MonoBehaviour
         // Enable the ACController script
         acController.enabled = true;
         acRigidbody.constraints = RigidbodyConstraints2D.None;
+        StartCoroutine(CooldownCoroutine());
     }
 }
 

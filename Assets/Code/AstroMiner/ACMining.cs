@@ -9,6 +9,9 @@ public class ACMining : MonoBehaviour
     public float miningRange = 2f; // Range of the mining zone
     public int mineralsPerSecond = 1; // Number of minerals harvested per second
     public int totalMineralsHarvested; // Total number of minerals harvested
+    public int maxCargo = 100; // Maximum amount of minerals that can be harvested
+    public ACMinerals acMineralsScript;
+
 
     private float timeSinceLastMine; // Time elapsed since the last mine
 
@@ -42,10 +45,15 @@ public class ACMining : MonoBehaviour
                 // Set the flag indicating that the player is mining
                 isMining = true;
 
-                // Mine minerals from the asteroid if enough time has passed
-                if (timeSinceLastMine >= 1f)
+                // Mine minerals from the asteroid if enough time has passed and maxCargo is not reached
+                if (timeSinceLastMine >= 1f && totalMineralsHarvested < maxCargo)
                 {
                     int mineralsMined = collider.GetComponent<AsteroidMining>().Mine(mineralsPerSecond);
+                    int remainingCargo = maxCargo - totalMineralsHarvested;
+                    if (mineralsMined > remainingCargo)
+                    {
+                        mineralsMined = remainingCargo;
+                    }
                     totalMineralsHarvested += mineralsMined; // update the total minerals harvested
                     timeSinceLastMine = 0f;
                 }
