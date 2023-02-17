@@ -6,15 +6,11 @@ public class UpgradeTrigger : MonoBehaviour
 {
     public GameObject upgradeUI;
     public ACController acController;
-    public ACMining acMining;
+    public ACMining acMining; 
 
     private Rigidbody2D acRigidbody;
-    public Animator animator;
-
-
-    public Sprite TREE36;
-
-    public SpriteRenderer spriteRenderer;
+    private string playerTag = "Player";
+    private string mineralZone = "mineralZone";
 
     private void Start()
     {
@@ -24,7 +20,8 @@ public class UpgradeTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        // Check if the collider is tagged as a MineralsZone and the player is in contact with it
+        if (other.CompareTag(mineralZone) && other.GetComponent<Collider2D>().IsTouching(GameObject.FindGameObjectWithTag(playerTag).GetComponent<Collider2D>()))
         {
             // Show the shop UI
             upgradeUI.SetActive(true);
@@ -35,21 +32,12 @@ public class UpgradeTrigger : MonoBehaviour
         }
     }
 
-    public void BuyUpgradeTier1()
-    {
-        acMining.mineralsPerSecond = 5;
-        animator.SetBool("firstUpgrade", true);
-        spriteRenderer.sprite = TREE36;
-    }
-
     public void OnExitShop()
     {
         // Hide the shop UI
         upgradeUI.SetActive(false);
         // Enable the ACController script
         acController.enabled = true;
-        // Unfreeze the ACController rigidbody
-        acRigidbody.constraints = RigidbodyConstraints2D.None;
     }
 }
 

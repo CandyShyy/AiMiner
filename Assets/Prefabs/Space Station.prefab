@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4361163556635892599}
   - component: {fileID: 3321262970274052933}
-  - component: {fileID: 5617336034263544943}
   m_Layer: 0
-  m_Name: StoringMinerals
-  m_TagString: Untagged
+  m_Name: mineralZone
+  m_TagString: mineralZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,24 +58,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.7434235, y: 3.0778542}
   m_EdgeRadius: 0
---- !u!114 &5617336034263544943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4338584640287771066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2f6956b45f6bf742aa94aeb5f5cea60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeUI: {fileID: 0}
-  acController: {fileID: 0}
-  acMining: {fileID: 0}
-  animator: {fileID: 0}
-  TREE36: {fileID: 0}
-  spriteRenderer: {fileID: 0}
 --- !u!1 &8069536393042032484
 GameObject:
   m_ObjectHideFlags: 0

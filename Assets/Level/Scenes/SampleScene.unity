@@ -361,7 +361,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262608708}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UpgradeTrigger, Assembly-CSharp
         m_MethodName: OnExitShop
         m_Mode: 1
@@ -527,17 +527,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &262608708 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5617336034263544943, guid: 274e4ee0983a26548972e2dd507bb1fb, type: 3}
-  m_PrefabInstance: {fileID: 8558500903252162943}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2f6956b45f6bf742aa94aeb5f5cea60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &270997378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1267,7 +1256,7 @@ GameObject:
   - component: {fileID: 622445298}
   - component: {fileID: 622445299}
   m_Layer: 0
-  m_Name: UpgradeTree
+  m_Name: UpgradePlate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1281,15 +1270,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622445296}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 30, y: 30, z: 30}
+  m_LocalPosition: {x: -0.5937729, y: 0.34807968, z: 90.09387}
+  m_LocalScale: {x: 0.38888887, y: 0.38888887, z: 0.38888887}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 773351825}
   - {fileID: 145735927}
   - {fileID: 1005329351}
-  m_Father: {fileID: 1310714118}
-  m_RootOrder: 2
+  m_Father: {fileID: 1476562130}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &622445298
 SpriteRenderer:
@@ -1731,7 +1720,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262608708}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UpgradeTrigger, Assembly-CSharp
         m_MethodName: OnExitShop
         m_Mode: 1
@@ -2003,7 +1992,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 262608708}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UpgradeTrigger, Assembly-CSharp
         m_MethodName: BuyUpgradeTier1
         m_Mode: 1
@@ -3328,6 +3317,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6856799825149112618, guid: dabb3847dc1bd7f45849207c92c904dd, type: 3}
+      propertyPath: Minerals
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6879139283930386856, guid: dabb3847dc1bd7f45849207c92c904dd, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -3470,17 +3463,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dabb3847dc1bd7f45849207c92c904dd, type: 3}
---- !u!114 &1181139308 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6856799825149112618, guid: dabb3847dc1bd7f45849207c92c904dd, type: 3}
-  m_PrefabInstance: {fileID: 1181139307}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa854194981004d4581c570d52957a2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1220372128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3755,7 +3737,7 @@ RectTransform:
   m_Children:
   - {fileID: 682582701}
   - {fileID: 1876353794}
-  - {fileID: 622445297}
+  - {fileID: 1476562130}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3899,6 +3881,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4830537956132898063, guid: b9189110eec7fe5458b0d7bd54254f41, type: 3}
   m_PrefabInstance: {fileID: 534995431}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1476562129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1476562130}
+  - component: {fileID: 1476562131}
+  m_Layer: 0
+  m_Name: UpgradeTree
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1476562130
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476562129}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 45.80534, y: -26.851862, z: -6950.099}
+  m_LocalScale: {x: 77.14286, y: 77.14286, z: 77.14286}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 622445297}
+  m_Father: {fileID: 1310714118}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1476562131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476562129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f6956b45f6bf742aa94aeb5f5cea60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeUI: {fileID: 622445296}
+  acController: {fileID: 1974468777}
+  acMining: {fileID: 1034266244}
 --- !u!1001 &1479868320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9588,38 +9618,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5589190779979279524, guid: 274e4ee0983a26548972e2dd507bb1fb, type: 3}
-      propertyPath: acMineralsScript
-      value: 
-      objectReference: {fileID: 1181139308}
-    - target: {fileID: 5617336034263544943, guid: 274e4ee0983a26548972e2dd507bb1fb, type: 3}
-      propertyPath: TREE36
-      value: 
-      objectReference: {fileID: 21300000, guid: 313f28afd5d550b4f84ca20fd9a6fb65, type: 3}
-    - target: {fileID: 5617336034263544943, guid: 274e4ee0983a26548972e2dd507bb1fb, type: 3}
-      propertyPath: acMining
-      value: 
-      objectReference: {fileID: 1034266244}
-    - target: {fileID: 5617336034263544943, guid: 274e4ee0983a26548972e2dd507bb1fb, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 622445299}
-    - target: {fileID: 5617336034263544943, guid: 274e4ee0983a26548972e2dd507bb1fb, type: 3}
-      propertyPath: upgradeUI
-      value: 
-      objectReference: {fileID: 622445296}
-    - target: {fileID: 5617336034263544943, guid: 274e4ee0983a26548972e2dd507bb1fb, type: 3}
-      propertyPath: acController
-      value: 
-      objectReference: {fileID: 1974468777}
-    - target: {fileID: 5617336034263544943, guid: 274e4ee0983a26548972e2dd507bb1fb, type: 3}
-      propertyPath: spriteRenderer
-      value: 
-      objectReference: {fileID: 622445298}
     - target: {fileID: 8069536393042032484, guid: 274e4ee0983a26548972e2dd507bb1fb, type: 3}
       propertyPath: m_Name
       value: Space Station
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7597787608537144158, guid: 274e4ee0983a26548972e2dd507bb1fb, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 274e4ee0983a26548972e2dd507bb1fb, type: 3}
