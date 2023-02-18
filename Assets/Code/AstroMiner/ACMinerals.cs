@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ACMinerals : MonoBehaviour
 {
-    [Header("All Minerals")]
     public int Minerals;
+
+    public TextMeshProUGUI mineralsText;
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -19,6 +22,8 @@ public class ACMinerals : MonoBehaviour
 
             // Reset the player's mined minerals
             playerMining.totalMineralsHarvested = 0;
+
+            mineralsText.text = Minerals.ToString();
         }
     }
 }

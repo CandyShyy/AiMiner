@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UpgradeTrigger : MonoBehaviour
 {
     public GameObject upgradeUI;
     public ACController acController;
     public ACMining acMining; 
+
+    public TextMeshProUGUI TextDescription;
+    public TextMeshProUGUI TextStats;
 
     private Rigidbody2D acRigidbody;
     private Collider2D playerCollider;
@@ -16,7 +20,10 @@ public class UpgradeTrigger : MonoBehaviour
     {
         upgradeUI.SetActive(false);
         acRigidbody = acController.GetComponent<Rigidbody2D>();
-        playerCollider = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>(); 
+        playerCollider = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>();
+
+        TextDescription.text = "...";
+        TextStats.text = "...";
     }
 
     private IEnumerator CooldownCoroutine()
@@ -46,6 +53,36 @@ public class UpgradeTrigger : MonoBehaviour
         acController.enabled = true;
         acRigidbody.constraints = RigidbodyConstraints2D.None;
         StartCoroutine(CooldownCoroutine());
+    }
+
+    public void Tier1()
+    {
+        TextDescription.text = "Mining upgrade level 1\nUpgraded with gremlinian ore.";
+        TextStats.text = "- The speed of mineral extraction +1";
+    }
+
+    public void Tier2()
+    {
+        TextDescription.text = "Mining upgrade level 2\nUpgraded with gremlinian ore.";
+        TextStats.text = "- The speed of mineral extraction +2";
+    }
+
+    public void Tier3()
+    {
+        TextDescription.text = "Mining upgrade level 3\nUpgraded with gremlinian ore.";
+        TextStats.text = "- The speed of mineral extraction +3";
+    }
+
+    public void Tier4()
+    {
+        TextDescription.text = "Mining upgrade level 4\nUpgraded with gremlinian ore.";
+        TextStats.text = "- The speed of mineral extraction +4";
+    }
+
+    public void Tier5()
+    {
+        TextDescription.text = "Mining upgrade level 5\nUpgraded with gremlinian ore.";
+        TextStats.text = "- The speed of mineral extraction +5";
     }
 }
 
