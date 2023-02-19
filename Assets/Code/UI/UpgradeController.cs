@@ -6,7 +6,7 @@ using TMPro;
 
 public class UpgradeController : MonoBehaviour
 {
-    [Header("Tier costs:")]
+   /* [Header("Tier costs:")]
     public int tier1Cost = 10;
     public int tier2Cost = 20;
     public int tier3Cost = 30;
@@ -26,9 +26,7 @@ public class UpgradeController : MonoBehaviour
     public Toggle tier5Button;
     public Button buyButton;
 
-    public Toggle[] upgradeToggles;
-    private Toggle currentlySelectedToggle;
-
+   
     private int currentTier = 0;
     private int currentCost = 0;
 
@@ -49,37 +47,8 @@ public class UpgradeController : MonoBehaviour
 
         // add listener for buy button
         buyButton.onClick.AddListener(BuyUpgrade);
-
-        // Get all the upgrade toggles
-        upgradeToggles = GetComponentsInChildren<Toggle>();
-
-        // Add onValueChanged listener to each upgrade toggle
-        foreach (Toggle upgradeToggle in upgradeToggles) {
-            upgradeToggle.onValueChanged.AddListener(delegate { OnUpgradeToggle(upgradeToggle); });
         }
-    }
-
-    void OnEnable() 
-    {
-        foreach (Toggle toggle in upgradeToggles) {
-            toggle.onValueChanged.AddListener(OnToggleSelected);
-        }
-    }
-
-    void OnDisable() {
-        foreach (Toggle toggle in upgradeToggles) {
-            toggle.onValueChanged.RemoveListener(OnToggleSelected);
-        }
-    }
-
-    void OnToggleSelected(bool isOn) {
-        if (isOn) {
-            if (currentlySelectedToggle != null && currentlySelectedToggle != Toggle.current) {
-                currentlySelectedToggle.isOn = false;
-            }
-            currentlySelectedToggle = Toggle.current;
-        }
-    }
+    
 
     void Update() {
         // check which tier button is selected
@@ -157,15 +126,6 @@ public class UpgradeController : MonoBehaviour
         // TODO: apply the upgrade based on the selected tier
 
         Debug.Log("Upgrade bought.");
-    }
-    
-    public void OnUpgradeToggle(Toggle toggle) {
-    // Uncheck all upgrade toggles except the one that was just toggled
-    foreach (Toggle upgradeToggle in upgradeToggles) {
-        if (upgradeToggle != toggle) {
-            upgradeToggle.isOn = false;
-        }
-    }
-}
-
+    } 
+    */  
 }
