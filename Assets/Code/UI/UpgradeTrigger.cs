@@ -5,33 +5,36 @@ using TMPro;
 
 public class UpgradeTrigger : MonoBehaviour
 {
-    [Header("upgradeUI")]
+    // References to game objects and components
+    [Header("Upgrade UI")]
     public GameObject upgradeUI;
-
     [Header("AC")]
     public ACController acController;
     public ACMining acMining;
     public Rigidbody2D acRigidbody;
     public Collider2D playerCollider;
-
     [Header("Text")]
     public TextMeshProUGUI TextDescription;
     public TextMeshProUGUI TextStats;
     public TextMeshProUGUI TextCost;
 
+    // Flag to prevent multiple upgrades from happening in quick succession
     private bool canTriggerUpgrade = true;
 
+    // Initialize components and text values
     private void Start()
     {
-        upgradeUI.SetActive(false);
+        upgradeUI.SetActive(false); // hide the upgrade UI
+        // assign references to components
         acRigidbody = acController.GetComponent<Rigidbody2D>();
         playerCollider = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>();
-
+        // initialize text values
         TextDescription.text = "...";
         TextStats.text = "...";
         TextCost.text = "0";
     }
 
+    // Coroutine to prevent multiple upgrades from happening in quick succession
     private IEnumerator CooldownCoroutine()
     {
         canTriggerUpgrade = false;
@@ -39,30 +42,30 @@ public class UpgradeTrigger : MonoBehaviour
         canTriggerUpgrade = true;
     }
 
-
+    // Called when player enters trigger collider on this game object
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Check if the collider is tagged as a MineralsZone and the player is in contact with it
-    if (canTriggerUpgrade && other.CompareTag("mineralZone") && other.GetComponent<Collider2D>().IsTouching(GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>()))
+        if (canTriggerUpgrade && playerCollider.gameObject.CompareTag("Player"))
         {
+            // show the upgrade UI and disable AC controller
             upgradeUI.SetActive(true);
             acController.enabled = false;
             acRigidbody.constraints = RigidbodyConstraints2D.FreezeAll; 
         }
     }
 
+    // Called when player exits the upgrade UI
     public void OnExitShop()
     {
-        // Hide the shop UI
+        // hide the upgrade UI, enable AC controller, and set rigidbody constraints to none
         upgradeUI.SetActive(false);
-        // Enable the ACController script
         acController.enabled = true;
         acRigidbody.constraints = RigidbodyConstraints2D.None;
+        // start cooldown coroutine to prevent multiple upgrades from happening in quick succession
         StartCoroutine(CooldownCoroutine());
     }
 
-
-    //Tiers
+    // Upgrade methods to set text values in the UI
     public void Tier1()
     {
         TextDescription.text = "Mining upgrade level 1\nUpgraded with gremlinian ore.";
@@ -98,4 +101,3 @@ public class UpgradeTrigger : MonoBehaviour
         TextCost.text = "50";
     }
 }
-
