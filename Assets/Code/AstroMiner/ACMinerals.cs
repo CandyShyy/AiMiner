@@ -13,7 +13,7 @@ public class ACMinerals : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Check if the collider is tagged as a MineralsZone and the player is in contact with it
-        if (other.CompareTag("mineralZone") && other.GetComponent<Collider2D>().IsTouching(GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>()))
+        if (other.CompareTag("mineralZone"))
         {
             ACMining playerMining = GameObject.FindGameObjectWithTag("Player").GetComponent<ACMining>();
 
@@ -22,8 +22,11 @@ public class ACMinerals : MonoBehaviour
 
             // Reset the player's mined minerals
             playerMining.totalMineralsHarvested = 0;
-
-            mineralsText.text = Minerals.ToString();
         }
+    }
+
+    private void Update() 
+    {
+        mineralsText.text = Minerals.ToString();
     }
 }
