@@ -12,10 +12,9 @@ public class ACMining : MonoBehaviour
     public int maxCargo = 100; // Maximum amount of minerals that can be harvested
     public ACMinerals acMineralsScript;
 
-
     private float timeSinceLastMine; // Time elapsed since the last mine
 
-    private void Update()
+        private void Update()
     {
         // Increment the time elapsed since the last mine
         timeSinceLastMine += Time.deltaTime;
