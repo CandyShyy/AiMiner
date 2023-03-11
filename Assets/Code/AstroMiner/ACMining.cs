@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class ACMining : MonoBehaviour
 {
-    public Animator animator;
-
+    [Header("MiningStats")]
     public float miningRange = 2f; // Range of the mining zone
     public int mineralsPerSecond = 1; // Number of minerals harvested per second
-    public int totalMineralsHarvested; // Total number of minerals harvested
     public int maxCargo = 100; // Maximum amount of minerals that can be harvested
+    public int totalMineralsHarvested; // Total number of minerals harvested
+
+    [Header("Other")]
+    public Animator animator;
     public ACMinerals acMineralsScript;
 
     private float timeSinceLastMine; // Time elapsed since the last mine

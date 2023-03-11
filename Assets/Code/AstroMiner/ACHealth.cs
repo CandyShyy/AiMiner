@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class ACHealth : MonoBehaviour
 {
+    [Header("Health")]
     public int maxHealth = 10;
     public int currentHealth;
-
-    public HealthBar healthBar;
     public float collisionThreshold = 10f;
+
+    [Header("Scripts")]
+    public ACController acController;
+    public ACMining acMining;
+    public HealthBar healthBar;
+
+    [Header("GameObjects")]
+    public GameObject DieScreen;
    
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        DieScreen.SetActive(false);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -37,5 +45,17 @@ public class ACHealth : MonoBehaviour
         currentHealth -= damage;
 
         healthBar.SetHealth(currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        DieScreen.SetActive(true);
+        acController.enabled = false; 
+        acMining.enabled = false; 
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MineralsBar : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class MineralsBar : MonoBehaviour
     public Image fill;
 
     public ACMining acMining;
+    public TextMeshProUGUI harvestedmineralsText;
 
     void Start()
     {
@@ -34,5 +36,6 @@ public class MineralsBar : MonoBehaviour
     void Update()
     {
         SetMinerals(acMining.totalMineralsHarvested);
+        harvestedmineralsText.text = acMining.totalMineralsHarvested.ToString();
     }
 }
