@@ -16,8 +16,11 @@ public class ACMining : MonoBehaviour
 
     private float timeSinceLastMine; // Time elapsed since the last mine
 
-        private void Update()
+    private void Update()
     {
+        // Check if the left mouse button is being held down
+        bool isMouseButtonDown = Input.GetMouseButton(0);
+
         // Increment the time elapsed since the last mine
         timeSinceLastMine += Time.deltaTime;
 
@@ -27,7 +30,7 @@ public class ACMining : MonoBehaviour
         // Get the collider component from the mining zone object
         Collider2D miningZoneCollider = miningZone.GetComponent<Collider2D>();
 
-        // Flag indicating whether or not the player is currently mining
+        // Reset the mining flag
         bool isMining = false;
 
         // Get all colliders that are touching the mining zone collider
@@ -43,11 +46,11 @@ public class ACMining : MonoBehaviour
             // Check if the collider is an asteroid
             if (collider.CompareTag("Minerals"))
             {
-                // Set the flag indicating that the player is mining
+                // Set the mining flag indicating that the player is mining
                 isMining = true;
 
                 // Mine minerals from the asteroid if enough time has passed and maxCargo is not reached
-                if (timeSinceLastMine >= 1f && totalMineralsHarvested < maxCargo)
+                if (timeSinceLastMine >= 1f && totalMineralsHarvested < maxCargo && isMouseButtonDown)
                 {
                     int mineralsMined = collider.GetComponent<AsteroidMining>().Mine(mineralsPerSecond);
                     int remainingCargo = maxCargo - totalMineralsHarvested;
@@ -62,6 +65,6 @@ public class ACMining : MonoBehaviour
         }
 
         // Update the animator based on whether or not the player is mining
-        animator.SetBool("IsMining", isMining);
+        animator.SetBool("IsMining", isMining && isMouseButtonDown);
     }
 }
