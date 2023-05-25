@@ -1,38 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
 public class CameraZoom : MonoBehaviour
 {
-    public float zoomSpeed = 1f;
-    public float maxZoom = 5f;
-    public float minZoom = 1f;
+    public float scrollSpeed = 5f;
+    public float maxZoom = 20f;
+    public float minZoom = 2f;
 
-    private CinemachineVirtualCamera virtualCamera;
-    private CinemachineFramingTransposer framingTransposer;
+    public CinemachineVirtualCamera virtualCamera;
 
     void Start()
     {
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
-        framingTransposer = virtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
     }
 
     void Update()
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
 
-        float currentDistance = framingTransposer.m_CameraDistance;
+        if (scroll != 0f)
+        { 
+        float newSize = virtualCamera.m_Lens.OrthographicSize -= scroll * scrollSpeed;
 
-        // Calculate the new distance based on the scroll input
-        float newDistance = currentDistance + scroll * zoomSpeed;
+        newSize = Mathf.Clamp(newSize, minZoom, maxZoom);
 
-        // Clamp the new distance within the min/max zoom range
-        newDistance = Mathf.Clamp(newDistance, maxZoom, minZoom);
-
-        // Calculate the new orthographic size based on the new distance
-        float newOrthoSize = Mathf.Abs(newDistance) / 2f;
-
-        // Set the new camera distance and orthographic size
-        framingTransposer.m_CameraDistance = newDistance;
-        virtualCamera.m_Lens.OrthographicSize = newOrthoSize;
+        virtualCamera.m_Lens.OrthographicSize = newSize;
+        }
     }
 }
