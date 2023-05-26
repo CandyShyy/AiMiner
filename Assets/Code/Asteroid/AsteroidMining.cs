@@ -39,12 +39,12 @@ public class AsteroidMining : MonoBehaviour
             // Half of the minerals are mined, change sprite
             parentSpriteRenderer.sprite = halfMinedSprite;
         }
-        else if (currentMinerals <= maxMinerals -1)
+        else if (currentMinerals <= maxMinerals - 1)
         {
             // Little of the minerals are mined, change sprite
             parentSpriteRenderer.sprite = littleMinedSprite;
         }
-            return amount; // return the number of minerals mined
+        return amount; // return the number of minerals mined
     }
 }
 

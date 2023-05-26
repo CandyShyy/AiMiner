@@ -9,9 +9,6 @@ public class ACController : MonoBehaviour
     public float sprintSpeed = 15.0f; // The speed the object moves while sprinting
     public float acceleration = 5.0f; // The rate at which the object accelerates
     public float deceleration = 2.0f; // The rate at which the object decelerates
-    //public float steering = 2.0f; 
-    public float rotationSpeed = 180.0f; // The rate at which the object rotates
-    
 
     private Rigidbody2D rigidBody; // Reference to the Rigidbody2D component
     private Transform myTransform; // Reference to the Transform component
@@ -34,23 +31,9 @@ public class ACController : MonoBehaviour
         Vector2 direction = new Vector2(
         mousePos.x - myTransform.position.x,
         mousePos.y - myTransform.position.y
-    );  
+    );
 
-    direction.Normalize(); // Normalize direction vector
-
-        // Add small sideways force when A or D is pressed
-        /*
-        if (Input.GetKey(KeyCode.A))
-        {
-            rigidBody.AddForce(-transform.right * steering);
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            rigidBody.AddForce(transform.right * steering);
-        }
-        */
-
-
+        direction.Normalize(); // Normalize direction vector
 
         // Move the ship forwards or backwards
         float moveInput = Input.GetAxis("Vertical");
@@ -104,7 +87,7 @@ public class ACController : MonoBehaviour
             animator.SetBool("isMoving", false);
             animator.SetBool("isSprinting", false);
 
-            
+
         }
         myTransform.up = direction;
     }

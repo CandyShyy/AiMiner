@@ -8,9 +8,9 @@ public class MineralsText : MonoBehaviour
     public TextMeshProUGUI mineralsText;
     public ACMinerals acMinerals;
 
-    private void Update() 
+    private void Update()
     {
         mineralsText.text = acMinerals.Minerals.ToString();
     }
-   
+
 }
