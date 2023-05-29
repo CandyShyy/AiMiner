@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ACMining : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class ACMining : MonoBehaviour
 
     [Header("Other")]
     public Animator animator;
-    public ACMinerals acMineralsScript;
+    public TextMeshProUGUI mineralsText;
 
     private float timeSinceLastMine; // Time elapsed since the last mine
 
@@ -60,5 +61,26 @@ public class ACMining : MonoBehaviour
 
         // Update the animator based on whether or not the player is mining
         animator.SetBool("IsMining", isMouseButtonDown);
+        mineralsText.text = totalMineralsHarvested.ToString();
+    }
+}
+
+public class ACMinerals : MonoBehaviour
+{
+    public int Minerals;
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // Check if the collider is tagged as a MineralsZone and the player is in contact with it
+        if (other.CompareTag("mineralZone"))
+        {
+            ACMining playerMining = GameObject.FindGameObjectWithTag("Player").GetComponent<ACMining>();
+
+            // Add the player's mined minerals to the ACMinerals script
+            Minerals += playerMining.totalMineralsHarvested;
+
+            // Reset the player's mined minerals
+            playerMining.totalMineralsHarvested = 0;
+        }
     }
 }
