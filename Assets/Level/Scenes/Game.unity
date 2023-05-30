@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: c3b8d96a13715054e99cb52004fb9547, type: 2}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: e3f91478e4d45294cbc7f8c96412880f, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 2be5051b656cbf8449164521cec53bba, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1672,7 +1672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  target: {fileID: 0}
+  target: {fileID: 6879139282896670913}
 --- !u!114 &423561810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2410,32 +2410,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &632289596 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2618914388971767387, guid: e1617c550a5f43145add827ffbd82654, type: 3}
-  m_PrefabInstance: {fileID: 2618914388591509031}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &632289601
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632289596}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8d4f8470c7503ae4eb2ee99cb45115a0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &642926941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3758,7 +3732,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1041354278}
   m_Layer: 7
-  m_Name: Enviroment
+  m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5894,6 +5868,17 @@ MonoBehaviour:
   TextDescription: {fileID: 310534815}
   TextStats: {fileID: 369520217}
   TextCost: {fileID: 1020609219}
+--- !u!114 &1764980443 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2618914388923852080, guid: e1617c550a5f43145add827ffbd82654, type: 3}
+  m_PrefabInstance: {fileID: 2618914388591509031}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1778474766
 GameObject:
   m_ObjectHideFlags: 0
@@ -7373,9 +7358,25 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2618914388923852082, guid: e1617c550a5f43145add827ffbd82654, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2618914388923852094, guid: e1617c550a5f43145add827ffbd82654, type: 3}
+      propertyPath: virtualCamera
+      value: 
+      objectReference: {fileID: 1764980443}
     - target: {fileID: 2618914388971767387, guid: e1617c550a5f43145add827ffbd82654, type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2618914388971767461, guid: e1617c550a5f43145add827ffbd82654, type: 3}
+      propertyPath: m_VolumeLayerMask.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2618914388971767461, guid: e1617c550a5f43145add827ffbd82654, type: 3}
+      propertyPath: m_VolumeFrameworkUpdateModeOption
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2618914388971767463, guid: e1617c550a5f43145add827ffbd82654, type: 3}
       propertyPath: m_RootOrder
@@ -7608,6 +7609,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3413408928850542496, guid: e39940fda71664541a9ec60d19c08eaf, type: 3}
+      propertyPath: data.dataString
+      value: UEsDBBQAAAgIAAAIIeykTD5YXAIAABUFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMziVjHFxMby0Q0gOBidPJxRdhr7EGWfJIMp/Df+9KtrFLJyeWt293337IV8KELiExUi0VS1cyBfJjQKxNvg065yuc6E6KiF2g5Xyy1OSWRB3nnRomER/ZMC0LMIolP8WOW7KHYCVYJlWxSHcwk9pohDPKNaBLSWOjBULXATnhz3BqQ85o+RNrXdCaeoMbmgkIA6qjtsSWVrMqkXBalJBayR05bNlhTRPYTMPwnkKbXXLOdKOFmHPpeo3KHBTYZlNGsTVXf/QUIJAD2+XGCu1Hr7NMg2lUKXqeM4UzqtOSX7IeXEH1vpZ2oLyyhUZOVJ1y9b/XD50/U7J4bcuOPFvC5CzZv9NzQrXpDbYPz3vK3YCOlO/plsNnDuJNLpWsRIpOoyobWmnw593fe2ezHJJ9h9daH8Cq/Ho9Q+zx5po/zTgrtm7y4xqIuHTzdssHhbv5jYLdaegmBaJWxR8NH3TXv6HG8cKUNuhquhRW3lZWylLJws3MdlOZmVQCVD9DCYJyc95gHvO4wgff11Ev1D6Xpnrja1/BQ4iDO77nPbg28njfls7lcQU6X1eGMwHdqK3jDQc1k0LUF9ZvqQ2LKpXRpBe2q1j673GRMYzD4HlMaeIFUz8cD6ehH2TTwH/2gu/BxJsQd3xMYJ+Ub2qhGGh3h2sTXXKBh9Z+RQZLRUt37amixyW7FFJ3TCYyGSUKQKzrDHfhoLAIPsx0kTIcUATGMOEWTq4x4TLZQxrfE8Wu08XJKBp3WWJSsoM0FonJzH02YmLh+zFvFBwYHG3xNtmN3P4CUEsDBBQAAAgIAAAIIexvn5/2bQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSSaqJhamxSWJisoGppZGFia6lhZFpmqWpkbGBqZmpuYG5UixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAIIeykTD5YXAIAABUFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIexvn5/2bQAAAHgAAAAJACQAAAAAAAAAAAAAAKkCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAYQMAAAAA
+      objectReference: {fileID: 0}
     - target: {fileID: 3413408928850542497, guid: e39940fda71664541a9ec60d19c08eaf, type: 3}
       propertyPath: m_Name
       value: A*
@@ -7622,11 +7627,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3413408928850542499, guid: e39940fda71664541a9ec60d19c08eaf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -49.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3413408928850542499, guid: e39940fda71664541a9ec60d19c08eaf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 49.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3413408928850542499, guid: e39940fda71664541a9ec60d19c08eaf, type: 3}
       propertyPath: m_LocalPosition.z

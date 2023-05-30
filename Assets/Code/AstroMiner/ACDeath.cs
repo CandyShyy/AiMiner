@@ -16,13 +16,11 @@ public class ACDeath : MonoBehaviour
     public ACShooting shootingScript;
 
     private Animator animator;
-    private ACRespawn playerRespawner;
 
     void Start()
     {
         DieScreen.SetActive(false);
         animator = GetComponent<Animator>();
-        playerRespawner = FindObjectOfType<ACRespawn>();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -60,8 +58,5 @@ public class ACDeath : MonoBehaviour
         // Show die screen and play death animation
         DieScreen.SetActive(true);
         animator.SetBool("isDead", true);
-
-        // Trigger respawn
-        playerRespawner.PlayerDied();
     }
 }

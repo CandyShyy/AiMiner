@@ -7,7 +7,6 @@ TagManager:
   - Asteroid
   - Minerals
   - Minimap
-  - mineralZone
   layers:
   - Default
   - TransparentFX
@@ -16,8 +15,8 @@ TagManager:
   - Water
   - UI
   - Minimap
-  - Enviroment
-  - 
+  - Environment
+  - Playerr
   - 
   - 
   - 
