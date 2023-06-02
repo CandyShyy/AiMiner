@@ -4,26 +4,18 @@ using UnityEngine;
 
 public class AsteroidRotation : MonoBehaviour
 {
-    // The speed at which the object will rotate
-    public float rotationSpeed = 50f;
-    public float minRotationSpeed = 20f;
-    public float maxRotationSpeed = 80f;
+    // The initial random rotation of the asteroid
+    private Quaternion initialRotation;
 
     private void Start()
     {
-        // Get a random value between the minimum and maximum rotation speeds
-        rotationSpeed = Random.Range(minRotationSpeed, maxRotationSpeed);
-
-        // If the random value is less than 0.5, rotate the object in the opposite direction
-        if (Random.value < 0.5f)
-        {
-            rotationSpeed = -rotationSpeed;
-        }
+        // Generate a random rotation for the asteroid
+        initialRotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
+        transform.rotation = initialRotation;
     }
 
     private void Update()
     {
-        // Rotate the object by the specified amount each frame
-        transform.Rotate(Vector3.forward * Time.deltaTime * rotationSpeed);
+        // The asteroid remains fixed in its initial rotation, no additional rotation needed
     }
 }
