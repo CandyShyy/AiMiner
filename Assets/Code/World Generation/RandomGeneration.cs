@@ -18,6 +18,7 @@ public class RandomGeneration : MonoBehaviour
     public float frequency = 0.5f;
     public float amplitude = 1f;
     public float scale = 1f;
+    public float bias;
 
      void Start()
     {
@@ -103,7 +104,7 @@ public void RandomGenerateObjects()
         {
             // Generate a random value and compare it to the noise value at this point
             float randomValue = UnityEngine.Random.Range(0f, 1f);
-            if (noiseMap[i,j] > randomValue)
+            if (noiseMap[i,j] - bias > randomValue)
             {
                 // Choose a random prefab from the list and instantiate it
                 int randomIndex = UnityEngine.Random.Range(0, prefabAssets.Length);
